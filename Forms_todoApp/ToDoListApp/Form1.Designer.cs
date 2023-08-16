@@ -113,12 +113,13 @@
             // 
             // buttonExit
             // 
+            this.buttonExit.BackColor = System.Drawing.Color.Red;
             this.buttonExit.Location = new System.Drawing.Point(1346, 13);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(71, 45);
             this.buttonExit.TabIndex = 6;
             this.buttonExit.Text = "Exit";
-            this.buttonExit.UseVisualStyleBackColor = true;
+            this.buttonExit.UseVisualStyleBackColor = false;
             this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
             // buttonSave
@@ -178,22 +179,24 @@
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.DeepPink;
             this.button1.Location = new System.Drawing.Point(1163, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(93, 45);
             this.button1.TabIndex = 14;
             this.button1.Text = "Save to file";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.Yellow;
             this.button2.Location = new System.Drawing.Point(1009, 12);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(114, 45);
             this.button2.TabIndex = 15;
             this.button2.Text = "Load from file";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label3
@@ -262,9 +265,9 @@
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(798, 462);
+            this.label6.Location = new System.Drawing.Point(790, 462);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(37, 16);
+            this.label6.Size = new System.Drawing.Size(45, 16);
             this.label6.TabIndex = 26;
             this.label6.Text = "Filter";
             // 
@@ -307,9 +310,9 @@
             // 
             // label8
             // 
-            this.label8.Location = new System.Drawing.Point(43, 466);
+            this.label8.Location = new System.Drawing.Point(33, 466);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(37, 16);
+            this.label8.Size = new System.Drawing.Size(47, 16);
             this.label8.TabIndex = 31;
             this.label8.Text = "Filter";
             // 

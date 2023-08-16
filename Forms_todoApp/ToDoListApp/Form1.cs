@@ -126,10 +126,8 @@ namespace ToDoListApp
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                MessageBox.Show("Select a valid task for editing!!");
             }
-
-            
 
         }
 
@@ -164,7 +162,7 @@ namespace ToDoListApp
 
             if (isEditing)
             {
-                if (TitleTextbox.Text == "" | descriptionTextbox.Text == "")
+                if (TitleTextbox.Text == "" | descriptionTextbox.Text == "")      // checking if the title and description fields are empty
                 {
                     MessageBox.Show("Enter the necessary fields before saving the task!!");
                 }
@@ -201,7 +199,6 @@ namespace ToDoListApp
                 {
                     //
                     MessageBox.Show("Enter the fields before adding the task!");
-                    //Console.WriteLine(ex.Message); 
                 }
 
             }
@@ -263,7 +260,7 @@ namespace ToDoListApp
 
             string JSONString = string.Empty;
             JSONString = JsonConvert.SerializeObject(todoList);
-            string path = @"C:\Users\FakirMohanPatra\OneDrive - Kongsberg Digital AS\Desktop\Kongs_Training\dotNET\ToDoListApp\tasksFile1.json";
+            string path = @"C:\Users\FakirMohanPatra\OneDrive - Kongsberg Digital AS\Desktop\Kongs_Training\dotNET\ToDoListApp\tasksFile2.json";
             using (var tw = new StreamWriter(path))
             {
                 tw.WriteLine(JSONString.ToString());
@@ -274,23 +271,24 @@ namespace ToDoListApp
 
         private void button2_Click(object sender, EventArgs e)    // loading tasks data from  a file
         {
+            try
+            {
+                string json = File.ReadAllText(@"C:\Users\FakirMohanPatra\OneDrive - Kongsberg Digital AS\Desktop\Kongs_Training\dotNET\ToDoListApp\tasksFile1.json");
+                DataTable todolist1 = (DataTable)JsonConvert.DeserializeObject(json, (typeof(DataTable)));
+                var rows = todolist1.Rows.Count;
+                //var cols = todolist1.Columns.Count; 
 
-            string json = File.ReadAllText(@"C:\Users\FakirMohanPatra\OneDrive - Kongsberg Digital AS\Desktop\Kongs_Training\dotNET\ToDoListApp\tasksFile2.json");
-            DataTable todolist = (DataTable)JsonConvert.DeserializeObject(json, (typeof(DataTable)));
-            ToDoListView.DataSource = todoList;
 
-
-
-
-
-            //string JSONString = string.Empty;
-            //JSONString = JsonConvert.SerializeObject(todoList);
-            //string path = @"C:\Users\FakirMohanPatra\OneDrive - Kongsberg Digital AS\Desktop\Kongs_Training\dotNET\ToDoListApp\tasksFile2.json";
-            //using (var tw = new StreamWriter(path))
-            //{
-            //    tw.WriteLine(JSONString.ToString());
-            //    tw.Close();
-            //}
+                for (int i = 0; i < rows; i++)     // printing the data in form UI
+                {
+                    todoList.Rows.Add(todolist1.Rows[i][0], todolist1.Rows[i][1], todolist1.Rows[i][2], todolist1.Rows[i][3], todolist1.Rows[i][4], todolist1.Rows[i][5]);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("File not Found !!");
+            }
+            
 
         }
 
@@ -299,4 +297,8 @@ namespace ToDoListApp
 
         }
     }
+
+
+    
+
 }
